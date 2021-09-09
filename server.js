@@ -1,5 +1,7 @@
 'use strict';
 
+require('dotenv').config();
+
 const express = require('express');
 
 const app = express();
@@ -15,9 +17,9 @@ app.get('/', (request, response) => {
 
 app.get('/weather', (request, response) => {
   response.send(weatherData);
-})
+});
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
   console.log(`Server started: http://localhost:${PORT}`);
